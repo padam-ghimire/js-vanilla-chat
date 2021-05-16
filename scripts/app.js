@@ -2,6 +2,7 @@ const chatList =document.querySelector('.chat-list')
 const chatForm =document.querySelector('.new-chat')
 const newName =document.querySelector('.new-name')
 const updateMessage =document.querySelector('.update-mssg')
+const chatRooms =document.querySelector('.chat-rooms')
 
 
 // check if username exist in localstorage
@@ -30,6 +31,20 @@ chatForm.addEventListener('submit',(e)=>{
         })
     chatForm.reset();
 
+
+});
+
+chatRooms.addEventListener('click',(e)=>{
+
+    if(e.target.tagName==="BUTTON"){
+        listUi.clear();
+
+        chatroom.updateRoom(e.target.getAttribute('id'));
+        chatroom.getChats((chats)=>{
+            listUi.render(chats)
+        });
+        
+    }
 
 });
 

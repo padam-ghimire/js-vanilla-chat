@@ -5,6 +5,10 @@ class ChatUi{
         this.list=list;
     }
 
+    clear(){
+        this.list.innerHTML='';
+    }
+
 
     render(data){
         const timeDistance = dateFns.distanceInWordsToNow(
